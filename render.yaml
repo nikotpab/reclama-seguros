@@ -19,7 +19,7 @@ services:
         fromDatabase:
           name: reclamaseguro-db
           property: password
-
+ 
   # Frontend Angular SSR Service
   - type: web
     name: reclamaseguro-frontend

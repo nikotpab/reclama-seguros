@@ -4,6 +4,7 @@ services:
     name: reclamaseguro-backend
     env: docker
     dockerfilePath: ./BACKEND/liclam/Dockerfile
+    dockerContext: ./BACKEND/liclam
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
@@ -23,6 +24,7 @@ services:
     name: reclamaseguro-frontend
     env: docker
     dockerfilePath: ./FRONTEND/reclama-seguros/Dockerfile
+    dockerContext: ./FRONTEND/reclama-seguros
     envVars:
       - key: BACKEND_URL
         fromService:

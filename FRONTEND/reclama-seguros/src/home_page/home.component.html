@@ -1,0 +1,53 @@
+<div class="home-container">
+  <header class="navbar">
+    <div class="logo-section">
+      <h1>ReclamaSeguros</h1>
+    </div>
+    <nav class="nav-links">
+      <button class="btn-outline" (click)="irALogin()">Iniciar Sesión</button>
+      <button class="btn-primary" (click)="irARegistro()">Registrarse</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Gestiona tus reclamaciones con confianza</h2>
+        <p>
+          Bienvenido a la plataforma centralizada para el seguimiento y gestión 
+          de tus seguros. Accede a tu panel para ver el estado de tus trámites 
+          o crea una cuenta nueva para comenzar.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary large" (click)="irARegistro()">Crear Cuenta</button>
+          <button class="btn-text" (click)="irALogin()">Ya tengo cuenta</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h3>¿Cómo te ayudamos?</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="icon">📋</div>
+          <h4>Gestión Centralizada</h4>
+          <p>Ten todos tus documentos y estados de reclamación en un solo lugar seguro.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h4>Seguridad Garantizada</h4>
+          <p>Tus datos están protegidos con los más altos estándares de seguridad bancaria.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h4>Proceso Ágil</h4>
+          <p>Olvídate de las filas. Realiza tus trámites desde la comodidad de tu hogar.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 ReclamaSeguro. Todos los derechos reservados.</p>
+  </footer>
+</div>

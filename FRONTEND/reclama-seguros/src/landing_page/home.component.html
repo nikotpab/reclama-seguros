@@ -1,0 +1,72 @@
+<div class="hero-container">
+  <div class="content-wrapper">
+    
+    <div class="text-section">
+      <h1 class="main-title">
+        Descubra si usted o un familiar tienen seguros sin cobrar.
+      </h1>
+      <h2 class="subtitle">
+        Hacemos una búsqueda en las aseguradoras por usted, de forma segura y legal.
+      </h2>
+      
+      <div class="trust-badges">
+        <span>✓ 100% Confidencial</span>
+        <span>✓ Asesoría Experta</span>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-card">
+        <h3>Solicitar Información</h3>
+        
+        <form [formGroup]="consultaForm" (ngSubmit)="onSubmit()">
+          
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              formControlName="nombre" 
+              placeholder="Ej. Juan Pérez"
+              [class.error-input]="enviado && f['nombre'].errors">
+            <small *ngIf="enviado && f['nombre'].errors" class="error-msg">
+              El nombre es obligatorio.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email" 
+              placeholder="Ej. juan@email.com"
+              [class.error-input]="enviado && f['email'].errors">
+            <small *ngIf="enviado && f['email'].errors" class="error-msg">
+              Ingrese un correo válido.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              formControlName="telefono" 
+              placeholder="Ej. 300 123 4567"
+              [class.error-input]="enviado && f['telefono'].errors">
+            <small *ngIf="enviado && f['telefono'].errors" class="error-msg">
+              Ingrese un número válido.
+            </small>
+          </div>
+
+          <button type="submit" class="cta-button">
+            Empezar consulta gratuita
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

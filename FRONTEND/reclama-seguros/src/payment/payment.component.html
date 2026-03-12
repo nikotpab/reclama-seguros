@@ -1,0 +1,65 @@
+<div class="wizard-container">
+
+  <div class="progress-section">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" style="width: 100%;"></div>
+    </div>
+    <p class="step-indicator">Paso 4 de 4: Pago y Activación</p>
+  </div>
+
+  <div class="header-section">
+    <h2>Último paso: activar búsqueda en aseguradoras.</h2>
+    <p>Realizamos una búsqueda oficial ante las aseguradoras del país.</p>
+  </div>
+
+  <div class="order-summary">
+    <div class="summary-row">
+      <span>Consulta y búsqueda de pólizas</span>
+      <span class="price">USD $10.00</span>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-total">
+      <span>Total a pagar</span>
+      <span>USD $10.00</span>
+    </div>
+  </div>
+
+  <div class="payment-methods">
+    <p class="method-label">Seleccione método de pago:</p>
+
+    <div class="method-card" [class.active]="selectedMethod === 'credit-card'" (click)="selectMethod('credit-card')">
+      <div class="radio-indicator"></div>
+      <div class="method-info">
+        <span class="method-name">Tarjeta de Crédito / Débito</span>
+        <div class="logos">
+          <img src="assets/visa.png" alt="Visa" class="payment-logo">
+          <img src="assets/mastercard.png" alt="Mastercard" class="payment-logo">
+        </div>
+      </div>
+    </div>
+
+    <div class="method-card" [class.active]="selectedMethod === 'paypal'" (click)="selectMethod('paypal')">
+      <div class="radio-indicator"></div>
+      <div class="method-info">
+        <span class="method-name">PayPal</span>
+        <div class="logos">
+          <img src="assets/paypal.png" alt="PayPal" class="payment-logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="security-badge">
+    Pagos procesados de forma segura.
+  </div>
+
+  <div class="actions">
+    <button class="btn-pay" (click)="processPayment()" [disabled]="isProcessing">
+
+      <span *ngIf="!isProcessing">Pagar y enviar solicitud</span>
+      <span *ngIf="isProcessing" class="spinner"></span>
+      <span *ngIf="isProcessing">Procesando...</span>
+    </button>
+  </div>
+
+</div>

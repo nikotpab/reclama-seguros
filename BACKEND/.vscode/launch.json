@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-LiclamApplication<liclam>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.liclam.lexinsurance.LiclamApplication",
+            "projectName": "liclam",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

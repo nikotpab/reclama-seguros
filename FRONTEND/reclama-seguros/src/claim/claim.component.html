@@ -1,0 +1,21 @@
+<div class="tracking-container">
+  <h2>Reclamación en trámite</h2>
+  <p class="subtitle">Su reclamación ha sido iniciada. Aquí puede ver el progreso.</p>
+
+  <div class="timeline">
+    <div class="step" *ngFor="let step of steps" [ngClass]="step.status">
+      <div class="step-icon">
+        <span *ngIf="step.status === 'completed'">✓</span>
+        <span *ngIf="step.status === 'pending'">⏳</span>
+      </div>
+      <div class="step-label">{{ step.label }}</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Última actualización:</strong> Hoy</p>
+    <p><strong>Próximo hito:</strong> Radicación (Est. 3 días hábiles)</p>
+  </div>
+
+  <button class="btn-dashboard" (click)="volverPanel()">Volver al panel</button>
+</div>

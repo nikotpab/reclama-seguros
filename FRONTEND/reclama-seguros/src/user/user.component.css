@@ -1,0 +1,231 @@
+.panel-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 var(--spacing-md);
+}
+
+
+h2 {
+  color: var(--text-main);
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 10px;
+}
+
+
+.loading {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 50px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: var(--primary);
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.empty-state {
+  text-align: center;
+  padding: 50px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-medium);
+  color: var(--text-muted);
+}
+
+.btn-new {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.btn-new:hover {
+  background-color: var(--primary-dark);
+}
+
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+
+.card-consulta {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-consulta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card-body h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-main);
+  font-size: 1.3rem;
+}
+
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-badge.IN_PROGRESS,
+.status-badge.PAID {
+  background-color: #ebf5fb;
+  color: var(--info);
+  border: 1px solid #a9cce3;
+}
+
+.status-badge.FOUND {
+  background-color: #eafaf1;
+  color: var(--success);
+  border: 1px solid #abebc6;
+}
+
+.status-badge.NOT_FOUND {
+  background-color: #fdedec;
+  color: var(--danger);
+  border: 1px solid #fadbd8;
+}
+
+.status-badge.CLAIM_STARTED {
+  background-color: #f4ecf7;
+  color: #8e44ad;
+  border: 1px solid #d2b4de;
+}
+
+.status-badge.LIQUIDATION_READY {
+  background-color: #fef9e7;
+  color: #d97706;
+  border: 1px solid #f9e79f;
+}
+
+
+.card-consulta::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--border-medium);
+}
+
+.card-consulta:hover::before {
+  background-color: var(--primary);
+}
+
+
+
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: var(--text-main);
+  font-size: 1.8rem;
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+
+.btn-cs {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-cs:hover {
+  background-color: #b91c1c;
+}

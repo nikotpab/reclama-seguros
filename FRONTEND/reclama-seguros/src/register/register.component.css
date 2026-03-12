@@ -1,0 +1,129 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  /* Adjust based on navbar height */
+  padding: var(--spacing-md);
+  background-color: var(--bg-body);
+}
+
+.register-box,
+.card-box {
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid var(--border-light);
+}
+
+h2 {
+  color: var(--text-main);
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: all 0.2s;
+  background-color: #fff;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: var(--spacing-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Verification Step Styles */
+.card-box {
+  text-align: center;
+}
+
+.code-input {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary);
+  border: 2px solid var(--border-medium);
+  margin: var(--spacing-lg) 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.code-input:focus {
+  border-color: var(--primary);
+}
+
+.link-text {
+  margin-top: var(--spacing-lg);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.link-text a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.link-text a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}

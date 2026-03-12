@@ -1,0 +1,103 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-body);
+  padding: 1rem;
+}
+
+.auth-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  font-size: 1.75rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.password-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 4rem;
+
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  color: var(--primary);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.verification-box {
+  text-align: center;
+}
+
+.code-input-wrapper {
+  margin: 2rem 0;
+}
+
+.input-code {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  padding: 1rem;
+  width: 100%;
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

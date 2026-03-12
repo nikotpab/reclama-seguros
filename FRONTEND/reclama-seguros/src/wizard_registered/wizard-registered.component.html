@@ -1,0 +1,76 @@
+<div class="wizard-container">
+  
+  <div class="progress-section">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" style="width: 25%;"></div>
+    </div>
+    <p class="step-indicator">Paso 1 de 4: ¿A quién desea consultar?</p>
+  </div>
+
+  <div class="selection-cards">
+    <div 
+      class="card-option" 
+      [class.active]="tipoConsulta === 'propio'"
+      (click)="seleccionarTipo('propio')">
+      <div class="radio-circle"></div>
+      <span>A mí mismo</span>
+    </div>
+
+    <div 
+      class="card-option" 
+      [class.active]="tipoConsulta === 'fallecido'"
+      (click)="seleccionarTipo('fallecido')">
+      <div class="radio-circle"></div>
+      <span>A un familiar fallecido</span>
+    </div>
+  </div>
+
+  <form [formGroup]="consultaForm" (ngSubmit)="onSubmit()">
+    
+    <div *ngIf="tipoConsulta === 'fallecido'" class="form-grid fade-in">
+      
+      <div class="form-group full-width">
+        <label>Nombre completo del fallecido</label>
+        <input type="text" formControlName="nombreFallecido" [class.error]="enviado && f['nombreFallecido'].errors">
+      </div>
+
+      <div class="form-group">
+        <label>Tipo de documento</label>
+        <select formControlName="tipoDocumento" [class.error]="enviado && f['tipoDocumento'].errors">
+          <option value="">Seleccione...</option>
+          <option value="CC">Cédula de Ciudadanía</option>
+          <option value="CE">Cédula de Extranjería</option>
+          <option value="RC">Registro Civil</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Número de documento</label>
+        <input type="text" formControlName="numeroDocumento" [class.error]="enviado && f['numeroDocumento'].errors">
+      </div>
+
+      <div class="form-group">
+        <label>Fecha aproximada de fallecimiento</label>
+        <input type="date" formControlName="fechaFallecimiento" [class.error]="enviado && f['fechaFallecimiento'].errors">
+      </div>
+
+      <div class="form-group">
+        <label>Parentesco</label>
+        <select formControlName="parentesco" [class.error]="enviado && f['parentesco'].errors">
+          <option value="">Seleccione...</option>
+          <option value="padre">Padre / Madre</option>
+          <option value="conyuge">Cónyuge</option>
+          <option value="hijo">Hijo / Hija</option>
+          <option value="hermano">Hermano / Hermana</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn-continuar" [disabled]="!tipoConsulta">Continuar</button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<div class="contract-container">
+  <h2>Autorización para reclamación</h2>
+  <p class="summary">Nos autoriza a realizar la reclamación ante las aseguradoras. Nuestros honorarios son del 10% sobre lo efectivamente pagado.</p>
+  
+  <button class="btn-link" (click)="toggleModal(true)">Ver contrato completo</button>
+
+  <div class="signature-box">
+    <label>Firme para aceptar:</label>
+    <canvas #contractCanvas 
+      (mousedown)="startDrawing($event)" (mousemove)="draw($event)" 
+      (mouseup)="stopDrawing()" (mouseleave)="stopDrawing()"
+      (touchstart)="startDrawing($event)" (touchmove)="draw($event)" (touchend)="stopDrawing()">
+    </canvas>
+    <button class="btn-clear" (click)="clearSignature()">Borrar</button>
+  </div>
+
+  <button class="btn-sign" [disabled]="!hasSigned" (click)="firmar()">Firmar Contrato</button>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-content">
+    <h3>Contrato de Mandato</h3>
+    <div class="modal-body">
+      <p>CLAUSULA PRIMERA: El usuario faculta a la empresa...</p>
+      <p>(Texto legal largo...)</p>
+    </div>
+    <button class="btn-close" (click)="toggleModal(false)">Cerrar</button>
+  </div>
+</div>

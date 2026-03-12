@@ -1,0 +1,96 @@
+.wizard-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+  user-select: none; 
+}
+
+.progress-section { margin-bottom: 30px; }
+.progress-bar-bg { height: 8px; background-color: #e0e0e0; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+.progress-bar-fill { height: 100%; background-color: #2980b9; border-radius: 4px; transition: width 0.3s ease; }
+.step-indicator { font-size: 0.9rem; color: #666; font-weight: 600; margin: 0; text-align: right; }
+
+.header-section h2 { color: #2c3e50; font-size: 1.5rem; margin-bottom: 10px; }
+.btn-link { background: none; border: none; color: #2980b9; text-decoration: underline; cursor: pointer; font-size: 1rem; padding: 0; margin-bottom: 20px; font-weight: 600; }
+
+.signature-area { margin-bottom: 30px; }
+.signature-area label { display: block; margin-bottom: 10px; font-weight: 500; color: #444; }
+
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #f9f9f9;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: crosshair;
+}
+
+.canvas-wrapper.error-border { border-color: #e74c3c; background-color: #fff5f5; }
+
+canvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none; 
+}
+
+.signature-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ccc;
+  font-size: 1.5rem;
+  pointer-events: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.signature-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  min-height: 20px;
+}
+
+.btn-clear {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: auto;
+}
+
+.checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+.checkbox-group input { margin-top: 4px; width: 20px; height: 20px; cursor: pointer; flex-shrink: 0; }
+.checkbox-group label { font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer; }
+
+.btn-continuar { width: 100%; padding: 15px; background-color: #27ae60; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+.btn-continuar:hover { background-color: #219150; }
+
+.error-msg { color: #e74c3c; font-size: 0.85rem; display: block; }
+.center-msg { text-align: center; margin-bottom: 15px; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000; backdrop-filter: blur(2px);
+}
+.modal-content {
+  background: white; padding: 30px; border-radius: 12px;
+  width: 90%; max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-content h3 { margin-top: 0; color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.modal-body { margin-bottom: 20px; line-height: 1.6; color: #555; }
+.modal-actions { display: flex; justify-content: flex-end; }
+.btn-primary { padding: 10px 25px; background-color: #2980b9; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }

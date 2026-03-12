@@ -1,0 +1,80 @@
+.result-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.icon-wrapper.error { background-color: #e74c3c; }
+.icon-wrapper.success { background-color: #27ae60; }
+
+h2 { color: #2c3e50; margin-bottom: 20px; }
+
+.message-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.success-box {
+  background-color: #eafaf1;
+  color: #2c3e50;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 14px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #7f8c8d;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+}

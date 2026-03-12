@@ -1,0 +1,25 @@
+<div class="result-container">
+  
+  <div class="card result-card not-found" *ngIf="estado === 'NOT_FOUND'">
+    <div class="icon-wrapper error">✕</div>
+    <h2>Resultado de la consulta</h2>
+    <div class="message-box">
+      <p>No se encontraron pólizas registradas a nombre de <strong>{{ nombreConsultado }}</strong> en las aseguradoras consultadas.</p>
+    </div>
+    <button class="btn-secondary" (click)="nuevaConsulta()">Hacer una nueva consulta</button>
+  </div>
+
+  <div class="card result-card found" *ngIf="estado === 'FOUND'">
+    <div class="icon-wrapper success">✓</div>
+    <h2>Buenas noticias: se encontraron pólizas sin reclamar.</h2>
+    <div class="message-box success-box">
+      <p>Las aseguradoras han informado que existen una o más pólizas asociadas a la persona consultada.</p>
+      <p>Podemos encargarnos de todo el proceso de reclamación por usted.</p>
+    </div>
+    <div class="actions">
+      <button class="btn-primary" (click)="iniciarReclamacion()">Quiero que gestionen la reclamación</button>
+      <button class="btn-text" (click)="decidirDespues()">Decidir después</button>
+    </div>
+  </div>
+
+</div>

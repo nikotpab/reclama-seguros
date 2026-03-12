@@ -1,0 +1,61 @@
+<div class="register-container">
+
+  <div *ngIf="step === 1" class="register-box">
+    <h2>Crear Cuenta</h2>
+
+    <div class="form-group">
+      <label>Nombre Completo</label>
+      <input type="text" [(ngModel)]="user.fullName" placeholder="Ej. Juan Pérez">
+    </div>
+
+    <div class="form-group">
+      <label>Correo Electrónico</label>
+      <input type="email" [(ngModel)]="user.email" placeholder="correo@ejemplo.com">
+    </div>
+
+    <div class="form-group">
+      <label>Teléfono</label>
+      <input type="text" [(ngModel)]="user.phone" placeholder="300 123 4567" maxlength="10"
+        (input)="onlyNumbers($event)" data-field="phone">
+    </div>
+
+    <div class="form-group">
+      <label>Cédula</label>
+      <input type="text" [(ngModel)]="user.cedula" placeholder="1234567890" maxlength="12" (input)="onlyNumbers($event)"
+        data-field="cedula">
+    </div>
+
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="user.password" placeholder="********">
+    </div>
+
+    <div class="form-group">
+      <label>Confirmar Contraseña</label>
+      <input type="password" [(ngModel)]="user.confirmPassword" placeholder="********">
+    </div>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+    <button type="button" class="btn-primary" (click)="register()" [disabled]="isLoading">
+      {{ isLoading ? 'Enviando...' : 'Registrarse' }}
+    </button>
+  </div>
+
+  <div *ngIf="step === 2" class="card-box">
+    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+    <h2>Verificación</h2>
+    <p>Ingresa el código que enviamos a<br><strong>{{ user.email }}</strong></p>
+
+    <input type="text" [(ngModel)]="verificationCode" class="code-input" placeholder="······" maxlength="6">
+
+    <button class="btn-primary" (click)="verifyCode()" [disabled]="isLoading">
+      {{ isLoading ? 'Validando...' : 'Confirmar Código' }}
+    </button>
+
+    <div class="link-text">
+      ¿No llegó? <a (click)="step=1">Cambiar correo</a> o Reenviar
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="status-container">
+  
+  <div class="status-card">
+    
+    <div class="icon-wrapper">
+      <div class="pulse-ring"></div>
+      <svg class="search-icon" viewBox="0 0 24 24" width="48" height="48">
+        <path fill="#2980b9" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </div>
+
+    <h1>Estamos consultando las aseguradoras</h1>
+
+    <div class="info-panel">
+      
+      <div class="status-row">
+        <span class="label">Estado:</span>
+        <span class="badge processing">
+          <span class="dot"></span> Consulta en curso
+        </span>
+      </div>
+
+      <div class="status-row">
+        <span class="label">Fecha de inicio:</span>
+        <span class="value">{{ fechaInicio | date:'dd/MM/yyyy' }}</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="friendly-text">
+        Hemos enviado su solicitud a las áreas de indemnizaciones de las aseguradoras.
+      </p>
+
+      <p class="note-text">
+        Aquí podrá observar el resultado tan pronto como sea respondida la solicitud.
+      </p>
+
+    </div>
+
+    <button class="btn-dashboard" (click)="irAlPanel()">
+      Ir a mi panel
+    </button>
+
+  </div>
+
+</div>

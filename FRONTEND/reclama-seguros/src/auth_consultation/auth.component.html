@@ -1,0 +1,62 @@
+<div class="wizard-container">
+
+  <div class="progress-section">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" style="width: 75%;"></div>
+    </div>
+    <p class="step-indicator">Paso 3 de 4: Autorización Legal</p>
+  </div>
+
+  <div class="header-section">
+    <h2>Necesitamos su autorización para consultar ante las aseguradoras.</h2>
+    <button class="btn-link" (click)="abrirDocumento($event)">
+      Lea aquí el documento de autorización
+    </button>
+  </div>
+
+  <div class="signature-area">
+    <label>Firme en el recuadro blanco:</label>
+    <div class="canvas-wrapper" [class.error-border]="enviado && !hasSigned">
+      <canvas #signatureCanvas (mousedown)="startDrawing($event)" (mousemove)="draw($event)" (mouseup)="stopDrawing()"
+        (mouseleave)="stopDrawing()" (touchstart)="startDrawing($event)" (touchmove)="draw($event)"
+        (touchend)="stopDrawing()">
+      </canvas>
+      <div class="signature-placeholder" *ngIf="!hasSigned && !isDrawing">Firme aquí</div>
+    </div>
+    <div class="signature-actions">
+      <small *ngIf="enviado && !hasSigned" class="error-msg">La firma es obligatoria.</small>
+      <button type="button" class="btn-clear" (click)="clearSignature()" *ngIf="hasSigned">Borrar firma</button>
+    </div>
+  </div>
+
+  <form [formGroup]="signatureForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="auth" formControlName="authorization">
+      <label for="auth">
+        Autorizo a <strong>[Nombre de la empresa]</strong> a consultar en mi nombre ante las compañías de seguros,
+        exclusivamente para verificar la existencia de pólizas.
+      </label>
+    </div>
+    <small *ngIf="enviado && f['authorization'].errors" class="error-msg center-msg">Debe marcar la casilla de
+      autorización para continuar.</small>
+
+    <div class="actions">
+      <button type="submit" class="btn-continuar">Firmar y continuar</button>
+    </div>
+
+  </form>
+
+</div>
+
+<div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <h3>Autorización de Consulta</h3>
+    <div class="modal-body">
+      <p>Autorización</p>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn-primary" (click)="cerrarModal()">Entendido, cerrar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="docs-container">
+  <h2>Para iniciar el trámite, necesitamos algunos documentos.</h2>
+  
+  <div class="docs-list">
+    <div class="doc-item" *ngFor="let doc of docs">
+      <div class="doc-info">
+        <span class="status-icon" [class.done]="doc.uploaded">
+          {{ doc.uploaded ? '✔' : '○' }}
+        </span>
+        <label>{{ doc.label }}</label>
+      </div>
+      
+      <div class="upload-action">
+        <input 
+          type="file" 
+          [id]="'file-' + doc.id" 
+          (change)="onFileSelected($event, doc.type)" 
+          hidden>
+          
+        <label [for]="'file-' + doc.id" class="btn-upload">
+          {{ doc.uploaded ? 'Cambiar archivo' : 'Subir archivo' }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-continue" [disabled]="!allUploaded" (click)="continuar()">Continuar</button>
+</div>

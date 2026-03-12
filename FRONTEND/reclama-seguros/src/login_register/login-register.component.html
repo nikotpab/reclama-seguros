@@ -1,0 +1,90 @@
+<div class="auth-container">
+  <div class="auth-card">
+
+
+    <div class="auth-header">
+      <h2 *ngIf="!showVerification">{{ isLoginMode ? 'Iniciar Sesión' : 'Crear Cuenta' }}</h2>
+      <h2 *ngIf="showVerification">Verificar Cuenta</h2>
+
+      <p *ngIf="!showVerification">{{ isLoginMode ? 'Acceda a su panel de consultas' : 'Regístrese para iniciar un
+        trámite' }}</p>
+      <p *ngIf="showVerification">
+        Ingresa el código enviado a <strong>{{ registerForm.get('email')?.value }}</strong>
+      </p>
+    </div>
+
+    <form *ngIf="!showVerification" [formGroup]="isLoginMode ? loginForm : registerForm" (ngSubmit)="onSubmit()">
+
+      <div *ngIf="!isLoginMode">
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" formControlName="fullName" placeholder="Ej. Juan Pérez"
+            [class.error]="r['fullName'].touched && r['fullName'].errors">
+        </div>
+
+        <div class="form-group">
+          <label>Cédula</label>
+          <input type="text" formControlName="cedula" placeholder="Ej. 1012345678" maxlength="12"
+            pattern="^[0-9]{6,12}$" (input)="onlyNumbers($event)"
+            [class.error]="r['cedula'].touched && r['cedula'].errors">
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" formControlName="phone" placeholder="Ej. 3001234567" maxlength="10" pattern="^3[0-9]{9}$"
+            (input)="onlyNumbers($event)" [class.error]="r['phone'].touched && r['phone'].errors">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email" placeholder="Ej. nombre@correo.com"
+          [class.error]="(isLoginMode ? l['email'].touched && l['email'].errors : r['email'].touched && r['email'].errors)">
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="password-wrapper">
+          <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" placeholder="••••••••"
+            [class.error]="(isLoginMode ? l['password'].touched && l['password'].errors : r['password'].touched && r['password'].errors)">
+          <button type="button" class="toggle-btn" (click)="togglePasswordVisibility()">
+            {{ passwordVisible ? 'Ocultar' : 'Ver' }}
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary"
+        [disabled]="isSubmitting || (isLoginMode ? loginForm.invalid : registerForm.invalid)">
+        <span *ngIf="!isSubmitting">{{ isLoginMode ? 'Ingresar' : 'Registrarme' }}</span>
+        <span *ngIf="isSubmitting" class="spinner"></span>
+      </button>
+
+    </form>
+
+    <div *ngIf="showVerification" class="verification-box">
+
+      <div class="code-input-wrapper">
+        <input type="text" [formControl]="verificationControl" placeholder="CÓDIGO" maxlength="6" class="input-code">
+      </div>
+
+      <button type="button" class="btn-primary" (click)="verifyCode()"
+        [disabled]="isSubmitting || verificationControl.invalid">
+        <span *ngIf="!isSubmitting">Confirmar Código</span>
+        <span *ngIf="isSubmitting" class="spinner"></span>
+      </button>
+
+      <div class="auth-footer">
+        <p>
+          ¿Correo incorrecto?
+          <a (click)="showVerification = false">Volver atrás</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="auth-footer" *ngIf="!showVerification">
+      <p *ngIf="isLoginMode">¿No tiene una cuenta? <a (click)="toggleMode()">Regístrese aquí</a></p>
+      <p *ngIf="!isLoginMode">¿Ya tiene cuenta? <a (click)="toggleMode()">Inicie sesión</a></p>
+    </div>
+
+  </div>
+</div>

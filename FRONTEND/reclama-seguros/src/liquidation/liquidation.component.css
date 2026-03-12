@@ -1,0 +1,93 @@
+.payment-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--font-primary);
+}
+
+.success-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+h2 {
+  color: var(--success);
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.success-header p {
+  color: var(--text-muted);
+}
+
+.receipt-card {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.amount {
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.commission .amount {
+  color: var(--danger);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-medium);
+  margin: var(--spacing-lg) 0;
+}
+
+.total {
+  font-weight: 800;
+  color: var(--text-main);
+  font-size: 1.25rem;
+}
+
+.date-info {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.btn-pdf {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.btn-pdf:hover {
+  background-color: var(--primary-dark);
+}

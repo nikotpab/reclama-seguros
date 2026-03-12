@@ -1,0 +1,52 @@
+<div class="panel-container">
+
+  <div class="panel-header">
+    <h2>Mis Consultas</h2>
+
+    <div class="header-actions">
+      <button class="btn-primary" routerLink="/tipo-solicitud">
+        Nueva consulta
+      </button>
+
+      <button class="btn-cs" (click)="logout()">
+        Cerrar sesión
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="loading()" class="loading">
+    <div class="spinner"></div>
+    <p>Conectando con aseguradoras...</p>
+  </div>
+
+  <div *ngIf="!loading() && consultas().length === 0" class="empty-state">
+    <p>No tienes consultas activas.</p>
+    <button class="btn-new" routerLink="/tipo-solicitud">Iniciar nueva búsqueda</button>
+  </div>
+
+  <div class="cards-grid" *ngIf="!loading() && consultas().length > 0">
+    <div class="card-consulta" *ngFor="let c of consultas()" (click)="verDetalle(c)">
+      <div class="card-header">
+        <span class="type">{{ c.consultationType }}</span>
+        <span class="date">{{ c.createdAt | date:'shortDate' }}</span>
+      </div>
+
+      <div class="card-body">
+        <h3>Trámite #{{ c.id }}</h3>
+        <span class="status-badge" [ngClass]="c.status">
+          {{
+          c.status === 'IN_PROGRESS' ? 'En Curso - Estamos esperando respuesta de las aseguradoras. Actualizaremos este
+          estado automáticamente.' :
+          c.status === 'FOUND' ? 'Pólizas Encontradas' :
+          c.status === 'NOT_FOUND' ? 'Sin Resultados' :
+          c.status === 'PAID' ? 'Pago Recibido' :
+          c.status === 'CLAIM_STARTED' ? 'Reclamación Iniciada' :
+          c.status === 'LIQUIDATION_READY' ? 'Indemnización Aprobada' :
+          c.status
+          }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

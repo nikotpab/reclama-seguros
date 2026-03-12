@@ -1,0 +1,32 @@
+<div class="payment-container">
+  <div class="success-header">
+    <h2>Indemnización aprobada</h2>
+    <p>La aseguradora aprobó el pago.</p>
+  </div>
+
+  <div class="receipt-card" *ngIf="datosPago">
+    <div class="row">
+      <span>Valor bruto aseguradora</span>
+      <span class="amount">$ {{ datosPago.valorBruto | number }}</span>
+    </div>
+    <div class="row commission">
+      <span>Comisión empresa (10%)</span>
+      <span class="amount">- $ {{ datosPago.comision | number }}</span>
+    </div>
+    <div class="divider"></div>
+    <div class="row total">
+      <span>Valor neto a recibir</span>
+      <span class="amount">$ {{ datosPago.valorNeto | number }}</span>
+    </div>
+
+    <div class="date-info">
+      Fecha programada: {{ datosPago.fechaTransferencia | date:'dd/MM/yyyy' }}
+    </div>
+  </div>
+
+  <div *ngIf="!datosPago" style="text-align: center; padding: 20px;">
+    Cargando información...
+  </div>
+
+  <button class="btn-pdf" (click)="descargarPDF()">Descargar resumen del caso (PDF)</button>
+</div>

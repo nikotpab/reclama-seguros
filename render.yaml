@@ -1,0 +1,37 @@
+services:
+  # Backend Spring Boot Service
+  - type: web
+    name: reclamaseguro-backend
+    env: docker
+    dockerfilePath: ./BACKEND/liclam/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: reclamaseguro-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: reclamaseguro-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: reclamaseguro-db
+          property: password
+
+  # Frontend Angular SSR Service
+  - type: web
+    name: reclamaseguro-frontend
+    env: docker
+    dockerfilePath: ./FRONTEND/reclama-seguros/Dockerfile
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: reclamaseguro-backend
+          property: host
+
+databases:
+  # PostgreSQL Database
+  - name: reclamaseguro-db
+    databaseName: reclamasegurodb
+    user: bdpsqlreclamaseguro

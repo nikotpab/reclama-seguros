@@ -1,4 +1,3 @@
-
 services:
   backend:
     build: .
@@ -6,10 +5,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      # Use the db service name defined below as the host
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/reclamasegurodb
-      - SPRING_DATASOURCE_USERNAME=bdpsqlreclamaseguro
-      - SPRING_DATASOURCE_PASSWORD='Ah%S6(w[m;$$r6\5c]~G-k';
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/reclamasegurodb
+      SPRING_DATASOURCE_USERNAME: bdpsqlreclamaseguro
+      SPRING_DATASOURCE_PASSWORD: 'Ah%S6(w[m;$$r6\5c]~G-k'
     depends_on:
       db:
         condition: service_healthy
@@ -18,10 +16,9 @@ services:
     image: postgres:15-alpine
     container_name: reclamaseguro_db
     environment:
-      - POSTGRES_DB=reclamasegurodb
-      - POSTGRES_USER=bdpsqlreclamaseguro
-      # Need to escape the $ sign with $$ in docker-compose if using a literal string containing it
-      - POSTGRES_PASSWORD='Ah%S6(w[m;$$r6\5c]~G-k';
+      POSTGRES_DB: reclamasegurodb
+      POSTGRES_USER: bdpsqlreclamaseguro
+      POSTGRES_PASSWORD: 'Ah%S6(w[m;$$r6\5c]~G-k'
     ports:
       - "5432:5432"
     healthcheck:
@@ -36,7 +33,7 @@ services:
       dockerfile: Dockerfile
     container_name: reclamaseguro_frontend
     environment:
-      - BACKEND_URL=http://backend:8080
+      BACKEND_URL: http://backend:8080
     ports:
       - "4000:4000"
     depends_on:

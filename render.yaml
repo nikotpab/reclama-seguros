@@ -3,8 +3,8 @@ services:
   - type: web
     name: reclamaseguro-backend
     env: docker
-    dockerfilePath: ./BACKEND/liclam/Dockerfile
-    dockerContext: ./BACKEND/liclam
+    rootDir: ./BACKEND/liclam
+    dockerfilePath: Dockerfile
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
@@ -23,8 +23,8 @@ services:
   - type: web
     name: reclamaseguro-frontend
     env: docker
-    dockerfilePath: ./FRONTEND/reclama-seguros/Dockerfile
-    dockerContext: ./FRONTEND/reclama-seguros
+    rootDir: ./FRONTEND/reclama-seguros
+    dockerfilePath: Dockerfile
     envVars:
       - key: BACKEND_URL
         fromService:

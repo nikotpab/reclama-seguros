@@ -14,8 +14,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - ./uploads:/app/uploads
 
   db:
     image: postgres:15-alpine
@@ -27,8 +25,6 @@ services:
       - POSTGRES_PASSWORD='Ah%S6(w[m;$$r6\5c]~G-k';
     ports:
       - "5432:5432"
-    volumes:
-      - reclamaseguro_postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U bdpsqlreclamaseguro -d reclamasegurodb"]
       interval: 10s
@@ -46,6 +42,3 @@ services:
       - "4000:4000"
     depends_on:
       - backend
-
-volumes:
-  reclamaseguro_postgres_data:
